@@ -76,6 +76,7 @@ $(document).ready(function(){
 
           if(d.status == 200){
             $("#create-order .sent-message").css("display","block");
+            redirect();
           }else if(d.status == 2010){
             $("#create-order .dup-message").css("display","block");
             $("#date").html(d.results.datetime);
@@ -103,6 +104,16 @@ $(document).ready(function(){
 
 });
 
+
+function redirect(){
+  setTimeout(() => {
+    if( $("#send").hasClass("en")){
+      location.replace("../thank_you.html");
+    }else{
+      location.replace("thank_you.html");
+    }
+  }, 3000);
+}
 
 (function() {
 
